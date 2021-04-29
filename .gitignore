@@ -1,0 +1,9 @@
+main.pdf
+*.toc
+*.aux
+*.log
+*.out
+*.fls
+*.bcf
+main.synctex.gz
+_minted-main

@@ -1,0 +1,49 @@
+\begin{declaration}
+    \pagestyle{empty}  % empty header, no page number footer
+    % set separation of above and below the rules to 0
+    \renewcommand{\aboverulesep}{0pt}
+    \renewcommand{\belowrulesep}{0pt}
+    \setlength\heavyrulewidth{0.4pt}
+    \setlength\lightrulewidth{0.4pt}
+
+    \textit{This Student should complete and sign this part}
+    \begin{table}[!ht]
+        \large
+        \begin{tabularx}{\textwidth}{|X|X|}
+            \toprule
+            Student Name:                           & Student GUID:                                                                                    \\
+            \student{}                              & \GUID{}                                                                                          \\
+            \midrule
+            Course Code:                            & Course Name:                                                                                     \\
+            UESTC4006P                              & INDIVIDUAL PROJECT 4                                                                             \\
+            \midrule
+            Name of 1st Supervisor:                 & Name of 2nd Supervisor:                                                                          \\
+            \firstsupervisor{}                      & \secondsupervisor{}                                                                              \\
+            \midrule
+            \multicolumn{2}{|l|}{Title of Project:}                                                                                                    \\
+            \multicolumn{2}{|p{15cm}|}{{\Large\thesistitle}}                                                                                  \\
+            \midrule
+            \multicolumn{2}{|l|}{\textbf{Declaration of Originality and Submission Information}}                                                       \\
+            \midrule
+            \small{I affirm that this submission is all my own work in accordance with the University of Glasgow Regulations and the School of Engineering requirements}
+                                                    & {}                                                                                               \\
+            \small{Signed (Student):}               & {}                                                                                               \\
+            \raggedright{\small{I affirm that this submission is completed by the student independently and the quality of the submission meets the requirements for graduation. I consent to the student taking part in the oral presentation.}}
+                                                    & \multicolumn{1}{|c|}{\raisebox{-\totalheight}{\centering\includegraphics[scale=0.7]{Figures/BarCode.jpg}}} \\
+            \small{Signed (\(1^{st}\) Supervisor):} & {}                                                                                               \\
+            \midrule
+            \multicolumn{2}{|l|}{Date of Submission:}                                                                                                  \\
+            \midrule
+            \multicolumn{2}{|l|}{\textit{\normalsize{Feedback from Lecturer to Student to be completed by Lecturer or Demonstrator}}}                               \\
+            \midrule
+            \multicolumn{2}{|l|}{Grade Awarded:}                                                                                                       \\
+            \multicolumn{2}{|l|}{Feedback (as appropriate to the coursework which was assessed):}                                                      \\
+            \multicolumn{2}{|l|}{}                                                                                                                     \\
+            \multicolumn{2}{|l|}{}                                                                                                                     \\
+            \midrule
+            Lecturer Demonstrator:                  & Date returned to the Teaching Office:                                                            \\
+            {}                                      & {}                                                                                               \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+\end{declaration}

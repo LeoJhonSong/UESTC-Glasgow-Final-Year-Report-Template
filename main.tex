@@ -1,0 +1,221 @@
+%----------------------------------------------------------------------------------------
+%   Final Year Project Report Bachelor of Engineering
+%   Glasgow College, UESTC
+%   (LaTex Template)
+%-------------------------------------------------------------------------------
+% Arrangement Author:   Huang Yifan  2288862h@student.gla.ac.uk
+%                       Zhuheng Song 2357651S@student.gla.ac.uk
+%-------------------------------------------------------------------------------
+%    PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%-------------------------------------------------------------------------------
+
+% arrangement ------------------------------------------------------------------
+\documentclass[
+    12pt, % The default document font size, options: 10pt, 11pt, 12pt
+    twoside, % Two side (alternating margins) for binding
+    % draft,  % speed up comile and show problems
+    % showframe, % Uncomment to show how the type block is set on the page
+]{article} % The class file specifying the document structure
+
+\usepackage[
+    a4paper,
+    inner=2.5cm,  % more margin for inner in case to bookbind
+    outer=2cm,
+    top=2cm,
+    bottom=2cm
+]{geometry}
+
+% set line spacing to 1.5
+\usepackage{setspace}
+\onehalfspacing{}
+% set no vertical space to lists
+\usepackage{enumitem}
+\setlist{itemsep=0mm}
+
+% language, fonts and symbols --------------------------------------------------
+% \usepackage{xeCJK}  % chinese character support
+\usepackage[english]{babel}  % set article language to English
+% \usepackage{fontspec}
+% \setmainfont{Times New Roman}
+% \setsansfont{Arial}
+% \setmonofont{Courier New}
+\usepackage{csquotes}  % quotation support
+\usepackage{amssymb}  % math symbols support
+
+% figures, tables, code --------------------------------------------------------
+\usepackage[figuresleft]{rotating}  % for figure rotation
+\usepackage{graphicx}  % inclusion of graphics files
+\graphicspath{{./}}
+\usepackage{import}  % to solve import path
+\usepackage[newfloat]{minted}
+\SetupFloatingEnvironment{listing}{name=Program code}
+\SetupFloatingEnvironment{listing}{listname=List of Program Code}
+\usemintedstyle{vs}
+\usepackage{caption}
+
+\usepackage{tabularx}
+\usepackage{booktabs}  % for \toprule, \midrule, \bottomrule
+
+\usepackage[nottoc]{tocbibind}  % add LofF, LofT to TOC
+
+% reference --------------------------------------------------------------------
+\usepackage[
+    backend=biber,
+    style=alphabetic,
+    citestyle=authoryear,
+    backref=true,
+    natbib=true,
+    maxcitenames=1,
+    maxbibnames=999,
+    sorting=ynt,
+]{biblatex}
+% set cite link to whole author-year
+\makeatletter
+    \let\abx@macro@citeOrig\abx@macro@cite{}
+    \renewbibmacro{cite}{\bibhyperref{\let\bibhyperref\relax\relax\abx@macro@citeOrig{}}}
+\makeatother{}
+% allow \citetitle{} to support hyperlink
+\DeclareCiteCommand{\citetitle}{\usebibmacro{prenote}}{
+    \ifciteindex{\indexfield{indextitle}}{}\printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}
+}{\multicitedelim}{\usebibmacro{postnote}}
+% add bibliography files
+\addbibresource{References.bib}
+
+% color ------------------------------------------------------------------------
+\usepackage[svgnames]{xcolor}  % colouring
+\definecolor{blue_cite}{RGB}{34,111,212}
+
+\usepackage{hyperref}  % keep hyperref to be loaded last (before glossaries-extra)
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue_cite,
+    % anchorcolor=black,
+    citecolor=blue_cite,
+    % filecolor=cyan,
+    % menucolor=red,
+    % runcolor=cyan,
+    % urlcolor=magenta,
+    % allcolors=LightSlateGray,
+}  % set colors for different types of links
+
+% list of symbols --------------------------------------------------------------
+\usepackage[symbols, nogroupskip, record]{glossaries-extra}  % place after hyperref
+\GlsXtrLoadResources[
+ src={Notations.bib},
+ type=symbols,
+ save-locations=false
+]
+
+% enhance \ref -----------------------------------------------------------------
+\usepackage[nameinlink]{cleveref}  % place after any package used the \label macro
+%----------------------------------------------------------------------------------------
+%    THESIS INFORMATION (NECESSARY)
+%----------------------------------------------------------------------------------------
+\newcommand{\thesistitle}{Some Thesis Title}  % Your thesis title, this is used in the cover page, print it elsewhere with \thesistitle
+\newcommand{\GUID}{1111111A}  % Your GUID, this is used in the cover page, print it elsewhere with \GUID
+\newcommand{\student}{San~\textsc{Zhang}}  % Your name, this is used in the title page and abstract, print it elsewhere with \student
+\newcommand{\firstsupervisor}{\textcolor{red}{\tiny Keep blank before hardcopy submission}}  % Your 1st supervisor's name, this is used in the cover page, print it elsewhere with \firstsupervisor. YOU NEED TO KEEP BLANK FOR MOODLE SUBMISSION BUT PUT THE NAME BEFORE HARDCOPY SUBMISSION.
+\newcommand{\secondsupervisor} {\textcolor{red}{\tiny Keep blank before hardcopy submission}}  % Your 2nd supervisor's name, this is used in the cover page, print it elsewhere with \secondsupervisor. YOU NEED TO KEEP BLANK FOR MOODLE SUBMISSION BUT PUT THE NAME BEFORE HARDCOPY SUBMISSION.
+%----------------------------------------------------------------------------------------
+%    OTHER INFORMATION
+%----------------------------------------------------------------------------------------
+\newcommand{\degree}{Engineering}  % Your degree name, this is used in the cover page and abstract, print it elsewhere with \degree
+\newcommand{\subject}{Electric & Electronic Engineering}  % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subject
+\newcommand{\keywords}{}  % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywords
+\newcommand{\university}{\href{https://www.uestc.edu.cn/}{UETSC}}  % Your university's name and URL, this is used in the cover page and abstract, print it elsewhere with \university
+\newcommand{\department}{\href{http://www.gla.uestc.edu.cn/}{Glasgow College}}  % Your department's name and URL, this is used in the cover page and abstract, print it elsewhere with \department
+%----------------------------------------------------------------------------------------
+%    ENVIRONMENTS
+%----------------------------------------------------------------------------------------
+\newenvironment{declaration}{
+    \newgeometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
+    \renewcommand*{\arraystretch}{1.3}
+    \section*{Coursework Declaration and Feedback Form}
+    % \addcontentsline{toc}{section}{Coursework Declaration and Feedback Form}
+}{\clearpage\restoregeometry}
+
+\renewenvironment{abstract}{
+    \section*{Abstract}
+    \bigskip
+    \addcontentsline{toc}{section}{Abstract}
+}{\clearpage}
+
+\newenvironment{acknowledgement}{
+    \section*{Acknowledgements}
+    \bigskip
+    \addcontentsline{toc}{section}{Acknowledgements}
+}{\clearpage}
+
+\newenvironment{code}{
+    \captionsetup{type=listing}
+}{}
+
+\AtBeginDocument{
+    \hypersetup{pdftitle=\thesistitle} % Set the PDF's title to your title
+    \hypersetup{pdfauthor=\student} % Set the PDF's author to your name
+    \hypersetup{pdfkeywords=\keywords} % Set the PDF's keywords to your keywords
+}
+
+\begin{document}
+%----------------------------------------------------------------------------------------
+%    COVER PAGE
+%----------------------------------------------------------------------------------------
+\include{Front/Cover.tex}
+%----------------------------------------------------------------------------------------
+%    DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+\include{Front/Declaration.tex}
+%----------------------------------------------------------------------------------------
+%    ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+\pagenumbering{roman}  % start to show page number in the roman style
+
+\include{Front/Abstract.tex}
+%----------------------------------------------------------------------------------------
+%    ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+\include{Front/Acknowledgement.tex}
+%----------------------------------------------------------------------------------------
+%    LIST OF CONTENTS
+%----------------------------------------------------------------------------------------
+\tableofcontents
+\pagebreak
+%----------------------------------------------------------------------------------------
+%    LIST OF FIGURES AND TABLES
+%----------------------------------------------------------------------------------------
+\listoffigures
+\listoftables
+\listoflistings
+\pagebreak
+%----------------------------------------------------------------------------------------
+%    LIST OF NOTATIONS
+%----------------------------------------------------------------------------------------
+\printunsrtglossary[type=symbols,style=long,title={List of Notations}]
+\pagebreak
+%----------------------------------------------------------------------------------------
+%    THESIS CONTENT - SECTIONS
+%----------------------------------------------------------------------------------------
+\pagestyle{headings} % Return the page headers back to the "thesis" style
+\pagenumbering{arabic}
+
+% Include the sections of the thesis
+\include{Sections/Section1.tex}
+\include{Sections/Section2.tex}
+\include{Sections/Section3.tex}
+\include{Sections/Section4.tex}
+%----------------------------------------------------------------------------------------
+%    BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+\printbibliography[heading=bibintoc]
+%----------------------------------------------------------------------------------------
+%    THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+% Include the appendices of the thesis as separate files from the Appendices folder
+\include{Appendices/Appendices.tex}  % Uncomment the lines as you write the Appendices
+\include{Appendices/Plagiarism.tex}
+\include{Appendices/Code.tex}
+%----------------------------------------------------------------------------------------
+\end{document}
