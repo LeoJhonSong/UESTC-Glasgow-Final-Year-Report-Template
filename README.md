@@ -4,17 +4,17 @@
 
 ```
 .
-├── 📁.vscode			vscode配置
-├── 📁Appendices  		各个附录的tex文件文件夹
-├── 📁Code				要插入的代码可以放这个文件夹
-├── 📁Figures			图片文件夹
-├── 📁Front				几个前置页的tex文件文件夹
-├── 📁Sections			各个正文章节的tex文件文件夹
-├── 📑main.tex			控制页
-├── 📑Notations.bib		所有符号, 缩写放在这里
-├── 📑sample.pdf		生成出来的pdf该是这样
-├── 📑README.md			本说明文件
-└── 📑References.bib	所有引用的bibtex放这里
+├── 📁.vscode           vscode配置文件
+├── 📁Appendices        各个附录的tex文件文件夹
+├── 📁Code              要插入的代码可以放这个文件夹
+├── 📁Figures           图片文件夹
+├── 📁Front             几个前置页的tex文件文件夹
+├── 📁Sections          各个正文章节的tex文件文件夹
+├── 📑main.tex          控制页
+├── 📑Notations.bib     所有符号, 缩写放在这里
+├── 📑sample.pdf        生成出来的pdf该是这样
+├── 📑README.md         本说明文件
+└── 📑References.bib    所有引用的bibtex放这里
 ```
 
 关于版式, 使用的包, 颜色等文章设置, 姓名学号, 一导二导名字等信息都在**main.tex**这个控制页中, 在**main.tex**中以`\include{AA/Bb.tex}`语句添加了**Front**下的封面, 信息表格, 摘要, 致谢几个前置页, **Sections**下的几个正文章节以及**Appendices**下的几个附录. 通过在**main.tex**中注释掉相应include语句可以在写论文的时候暂时不生成不必要的部分.
