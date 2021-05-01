@@ -19,11 +19,11 @@
 
 关于版式, 使用的包, 颜色等文章设置, 姓名学号, 一导二导名字等信息都在**main.tex**这个控制页中, 在**main.tex**中以`\include{AA/Bb.tex}`语句添加了**Front**下的封面, 信息表格, 摘要, 致谢几个前置页, **Sections**下的几个正文章节以及**Appendices**下的几个附录. 通过在**main.tex**中注释掉相应include语句可以在写论文的时候暂时不生成不必要的部分.
 
-通过向**Notations.bib**中已经给出的例子那样将符号/缩写与含义配对地写在**Notations.bib**中, 以`\gls{xx}`来调用, 可以在文中插入点击能跳转到List of Notations页的符号/缩写. 如果不想放这种东西, 可以**Notations.bib**留空不管.
+通过像**Notations.bib**中已经给出的例子那样将符号/缩写与含义配对地写在**Notations.bib**中, 以`\gls{xx}`来调用, 可以在文中插入点击能跳转到List of Notations页的符号/缩写. 如果不想放这种东西, 可以**Notations.bib**留空不管.
 
 如果文中想放代码, 可以参考附录2的写法, 将代码放在**Code**文件夹然后用`\inputminted[]{}{}`语句插入代码. `code`这个定义在**main.tex**中的环境是为了让跨页的代码也能有`caption`的. 更具体的用法就需要自己上网搜搜*minted*这个包啦.
 
-在**.vscode**文件夹中有我在用VSC的LaTeX Workshop插件写LaTeX时用到的配置, 如果你已经安装了完整的TexLive并添加到路径了, 应当直接能用.
+在**\.vscode**文件夹中有我在用VSC的LaTeX Workshop插件写LaTeX时用到的配置, 如果你已经安装了完整的TexLive并添加到路径了, 应当直接能用.
 
 ## 指定字体
 
@@ -50,7 +50,7 @@
 
 ## 小技巧
 
-通过**main.tex**第16行的注释, 即给`\documentclass[]{article}`加上draft选项, 会开启草稿模式, 以线框代替图片, 在布局不恰当处用粗黑线标出, 生成也会更快.
+通过取消**main.tex**第16行的注释, 即给`\documentclass[]{article}`加上draft选项, 会开启草稿模式, 以线框代替图片, 在布局不恰当处用粗黑线标出, 生成也会更快.
 
 取消17行的注释的话会以线条显示出当前布局.
 
