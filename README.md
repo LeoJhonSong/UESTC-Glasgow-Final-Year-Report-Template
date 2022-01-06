@@ -21,7 +21,7 @@
 
 通过像**Notations.bib**中已经给出的例子那样将符号/缩写与含义配对地写在**Notations.bib**中, 以`\gls{xx}`来调用, 可以在文中插入点击能跳转到List of Notations页的符号/缩写. 如果不想放这种东西, 可以**Notations.bib**留空不管.
 
-如果文中想放代码, 可以参考附录2的写法, 将代码放在**Code**文件夹然后用`\inputminted[]{}{}`语句插入代码. `code`这个定义在**main.tex**中的环境是为了让跨页的代码也能有`caption`的. 更具体的用法就需要自己上网搜搜*minted*这个包啦.
+如果文中想放代码, 可以参考附录2的写法, 将代码放在**Code**文件夹然后用`\inputminted[]{}{}`语句插入代码. `code`这个定义在**main.tex**中的环境是为了让跨页的代码也能有`caption`的. 更具体的用法就需要自己上网搜搜*minted*这个包啦. 💡 注意需要另外安装[Pygments](https://pygments.org/)这个代码语法高亮生成工具. 如果你的路径里有Python, 只需`pip install Pygments`即可.
 
 在**\.vscode**文件夹中有我在用VSC的LaTeX Workshop插件写LaTeX时用到的配置, 如果你已经安装了完整的TexLive并添加到路径了, 应当直接能用.
 
