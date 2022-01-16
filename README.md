@@ -56,7 +56,7 @@
 
 ## 更多LeTaX帮助
 
-最近在更新一篇LaTeX使用笔记了 (过几天就放链接来了)
+最近在更新[一篇LaTeX使用笔记](https://leojhonsong.github.io/zh-CN/2021/05/24/LaTeX杂记/), 学弟学妹们有兴趣可以看看 😏
 
 ------
 
