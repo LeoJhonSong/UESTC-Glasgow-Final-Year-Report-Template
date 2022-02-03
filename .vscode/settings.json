@@ -79,22 +79,20 @@
     "latex-workshop.latex.recipe.default": "lastUsed",
     "latex-workshop.latex.recipes": [
         {
-            "name": "xelatex ➞ bib2gls ➞ biber ➞ xelatex × 2",
+            "name": "xelatex ➞ bib2gls ➞ biber ➞ xelatex",
             "tools": [
                 "xelatex",
                 "bib2gls",
                 "biber",
                 "xelatex",
-                "xelatex"
             ]
         },
         {
-            "name": "xelatex ➞ biber ➞ xelatex × 2",
+            "name": "xelatex ➞ biber ➞ xelatex",
             "tools": [
                 "xelatex",
                 "biber",
                 "xelatex",
-                "xelatex"
             ]
         },
     ],
