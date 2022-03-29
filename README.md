@@ -1,5 +1,12 @@
 # 格院毕设LaTeX模板简略说明
 
+## 依赖安装
+
+- 首先你需要安装一个LaTeX发行版, 推荐安装**TeXLive**. (默认使用xelatex编译)
+- 参考文献相关内容使用`biber`生成, Windows平台上这个程序好像一般已经包含在LaTeX发行版中了, 而在Linux下需要单独安装**biber**
+- 术语表相关内容使用`bib2gls`生成, 这个工具需要借助java, 因此你需要有**java**. 不过术语表 ([这里](https://www.overleaf.com/learn/latex/Nomenclatures)有个简单示例) 基本就是装逼用的, 懒得安装可以把main.tex中**list of symbols**段中的内容注释掉, 然后删掉示例内容中调用的`gls{}`, 不要术语表
+- 代码插入使用`minted`包实现, 其中代码语法高亮依赖于代码语法高亮生成工具[Pygments](https://pygments.org/). 如果你的路径里有Python, 只需`pip install Pygments`即可. (同样如果你不需要插入代码那就不用管)
+
 ## 文件结构
 
 ```
@@ -21,9 +28,9 @@
 
 通过像**Notations.bib**中已经给出的例子那样将符号/缩写与含义配对地写在**Notations.bib**中, 以`\gls{xx}`来调用, 可以在文中插入点击能跳转到List of Notations页的符号/缩写. 如果不想放这种东西, 可以**Notations.bib**留空不管.
 
-如果文中想放代码, 可以参考附录2的写法, 将代码放在**Code**文件夹然后用`\inputminted[]{}{}`语句插入代码. `code`这个定义在**main.tex**中的环境是为了让跨页的代码也能有`caption`的. 更具体的用法就需要自己上网搜搜*minted*这个包啦. 💡 注意需要另外安装[Pygments](https://pygments.org/)这个代码语法高亮生成工具. 如果你的路径里有Python, 只需`pip install Pygments`即可.
+如果文中想放代码, 可以参考附录2的写法, 将代码放在**Code**文件夹然后用`\inputminted[]{}{}`语句插入代码. `code`这个定义在**main.tex**中的环境是为了让跨页的代码也能有`caption`的. 更具体的用法就需要自己上网搜搜*minted*这个包啦.
 
-在**\.vscode**文件夹中有我在用VSC的LaTeX Workshop插件写LaTeX时用到的配置, 如果你已经安装了完整的TexLive并添加到路径了, 应当直接能用.
+在`\.vscode`文件夹中有我在用VSC的LaTeX Workshop插件写LaTeX时用到的配置, 如果你已经安装了完整的TexLive并添加到路径了, 应当直接能用.
 
 ## 指定字体
 
